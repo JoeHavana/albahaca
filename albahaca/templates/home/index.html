@@ -1,0 +1,273 @@
+{% extends 'base.html' %}
+{% load static cache %}
+{% block title %}HomePage - Albahaca{% endblock title %}
+
+{% block navbar %}
+  <!-- ======= Top Bar ======= -->
+  <section id="topbar" class="d-none d-lg-flex align-items-center fixed-top topbar-transparent">
+    <div class="container text-right">
+      <i class="fas fa-phone"></i> +1 5534 56789 10
+      <i class="fas fa-clock"></i> Mon-Sat: 11:00 AM - 23:00 PM
+    </div>
+  </section>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center header-transparent">
+    <div class="container d-flex align-items-center">
+
+      <div class="logo mr-auto">
+        <h1 class="text-light"><a href="{% url 'home' %}"><span>Albahaca</span></a></h1>
+      </div>
+
+      <nav class="nav-menu d-none d-lg-block">
+        <ul>
+          <li class="active"><a href="{% url 'home' %}">Home</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="{% url 'about' %}">About</a></li>
+          <li><a href="{% url 'specials' %}">Specials</a></li>
+          <li><a href="{% url 'events' %}">Events</a></li>
+          <li><a href="{% url 'chefs' %}">Chefs</a></li>
+          <li><a href="{% url 'gallery' %}">Gallery</a></li>
+          <li><a href="{% url 'contact' %}">Contact</a></li>
+
+          <li class="book-a-table text-center"><a href="#book-a-table">Book a table</a></li>
+        </ul>
+      </nav><!-- .nav-menu -->
+
+    </div>
+  </header><!-- End Header -->
+{% endblock navbar %}
+
+{% block content %}
+
+  {% cache 604800 hero %}
+    <!-- ======= Hero Section ======= -->
+    <section id="hero">
+      <div class="hero-container">
+        <div id="heroCarousel" class="carousel slide carousel-fade" data-ride="carousel">
+
+          <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+
+          <div class="carousel-inner" role="listbox">
+
+            <!-- Slide 1 -->
+            <div class="carousel-item active" style="background: url({% static 'assets/img/slide/slide-1.jpg' %});">
+              <div class="carousel-container">
+                <div class="carousel-content">
+                  <h2 class="animate__animated animate__fadeInDown"><span>Delicious</span> Restaurant</h2>
+                  <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
+                  <div>
+                    <a href="#menu" class="btn-menu animate__animated animate__fadeInUp scrollto mb-2">Our Menu</a>
+                    <a href="#book-a-table" class="btn-book animate__animated animate__fadeInUp scrollto mb-2">Book a Table</a>
+                    <a href="{% url 'full' %}" class="btn-book animate__animated animate__fadeInUp scrollto mb-2">More about us</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="carousel-item" style="background: url({% static 'assets/img/slide/slide-2.jpg' %});">
+              <div class="carousel-container">
+                <div class="carousel-content">
+                  <h2 class="animate__animated animate__fadeInDown">Lorem Ipsum Dolor</h2>
+                  <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
+                  <div>
+                    <a href="#menu" class="btn-menu animate__animated animate__fadeInUp scrollto mb-2">Our Menu</a>
+                    <a href="#book-a-table" class="btn-book animate__animated animate__fadeInUp scrollto mb-2">Book a Table</a>
+                    <a href="{% url 'full' %}" class="btn-book animate__animated animate__fadeInUp scrollto mb-2">More about us</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="carousel-item" style="background: url({% static 'assets/img/slide/slide-3.jpg' %});">
+              <div class="carousel-background"><img src="{% static 'assets/img/slide/slide-3.jpg' %}" alt=""></div>
+              <div class="carousel-container">
+                <div class="carousel-content">
+                  <h2 class="animate__animated animate__fadeInDown">Sequi ea ut et est quaerat</h2>
+                  <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
+                  <div>
+                    <a href="#menu" class="btn-menu animate__animated animate__fadeInUp scrollto mb-2">Our Menu</a>
+                    <a href="#book-a-table" class="btn-book animate__animated animate__fadeInUp scrollto mb-2">Book a Table</a>
+                    <a href="{% url 'full' %}" class="btn-book animate__animated animate__fadeInUp scrollto mb-2">More about us</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <a class="carousel-control-prev" href="#heroCarousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon fas fa-angle-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+
+          <a class="carousel-control-next" href="#heroCarousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon fas fa-angle-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+
+        </div>
+      </div>
+    </section><!-- End Hero -->
+
+      <!-- ======= Menu Section ======= -->
+      <section id="menu" class="menu">
+        <div class="container">
+
+          <div class="section-title">
+            <h2>Check our tasty <span>Menu</span></h2>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-12 d-flex justify-content-center">
+              <ul id="menu-flters">
+                <li data-filter="*" class="filter-active">Show All</li>
+                <li data-filter=".filter-starters">Starters</li>
+                <li data-filter=".filter-salads">Salads</li>
+                <li data-filter=".filter-specialty">Specialty</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="row menu-container">
+
+            <div class="col-lg-6 menu-item filter-starters">
+              <div class="menu-content">
+                <a href="#">Lobster Bisque</a><span>$5.95</span>
+              </div>
+              <div class="menu-ingredients">
+                Lorem, deren, trataro, filede, nerada
+              </div>
+            </div>
+
+            <div class="col-lg-6 menu-item filter-specialty">
+              <div class="menu-content">
+                <a href="#">Bread barrel</a><span>$6.95</span>
+              </div>
+              <div class="menu-ingredients">
+                Lorem, deren, trataro, filede, nerada
+              </div>
+            </div>
+
+            <div class="col-lg-6 menu-item filter-starters">
+              <div class="menu-content">
+                <a href="#">Crab Cake</a><span>$7.95</span>
+              </div>
+              <div class="menu-ingredients">
+                A delicate crab cake served on a toasted roll with lettuce and tartar sauce
+              </div>
+            </div>
+
+            <div class="col-lg-6 menu-item filter-salads">
+              <div class="menu-content">
+                <a href="#">Caesar Selections</a><span>$8.95</span>
+              </div>
+              <div class="menu-ingredients">
+                Lorem, deren, trataro, filede, nerada
+              </div>
+            </div>
+
+            <div class="col-lg-6 menu-item filter-specialty">
+              <div class="menu-content">
+                <a href="#">Tuscan Grilled</a><span>$9.95</span>
+              </div>
+              <div class="menu-ingredients">
+                Grilled chicken with provolone, artichoke hearts, and roasted red pesto
+              </div>
+            </div>
+
+            <div class="col-lg-6 menu-item filter-starters">
+              <div class="menu-content">
+                <a href="#">Mozzarella Stick</a><span>$4.95</span>
+              </div>
+              <div class="menu-ingredients">
+                Lorem, deren, trataro, filede, nerada
+              </div>
+            </div>
+
+            <div class="col-lg-6 menu-item filter-salads">
+              <div class="menu-content">
+                <a href="#">Greek Salad</a><span>$9.95</span>
+              </div>
+              <div class="menu-ingredients">
+                Fresh spinach, crisp romaine, tomatoes, and Greek olives
+              </div>
+            </div>
+
+            <div class="col-lg-6 menu-item filter-salads">
+              <div class="menu-content">
+                <a href="#">Spinach Salad</a><span>$9.95</span>
+              </div>
+              <div class="menu-ingredients">
+                Fresh spinach with mushrooms, hard boiled egg, and warm bacon vinaigrette
+              </div>
+            </div>
+
+            <div class="col-lg-6 menu-item filter-specialty">
+              <div class="menu-content">
+                <a href="#">Lobster Roll</a><span>$12.95</span>
+              </div>
+              <div class="menu-ingredients">
+                Plump lobster meat, mayo and crisp lettuce on a toasted bulky roll
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section><!-- End Menu Section -->
+      <!-- ======= Book A Table Section ======= -->
+      <section id="book-a-table" class="book-a-table">
+        <div class="container">
+
+          <div class="section-title">
+            <h2>Book a <span>Table</span></h2>
+            <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque vitae autem.</p>
+          </div>
+
+          <form action="." method="post" role="form" class="php-email-form">
+            <div class="form-row">
+              <div class="col-lg-4 col-md-6 form-group">
+                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:3" data-msg="Please enter at least 3 chars">
+                <div class="validate"></div>
+              </div>
+              <div class="col-lg-4 col-md-6 form-group">
+                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email">
+                <div class="validate"></div>
+              </div>
+              <div class="col-lg-4 col-md-6 form-group">
+                <input type="text" class="form-control" name="phone" id="phone" placeholder="Your Phone" data-rule="minlen:6" data-msg="Please enter at least 6 chars">
+                <div class="validate"></div>
+              </div>
+              <div class="col-lg-4 col-md-6 form-group">
+                <input type="date" name="date" class="form-control" id="date" placeholder="Date" data-rule="minlen:6" data-msg="Please enter a valid date">
+                <div class="validate"></div>
+              </div>
+              <div class="col-lg-4 col-md-6 form-group">
+                <input type="time" class="form-control" name="time" id="time" placeholder="Time" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+                <div class="validate"></div>
+              </div>
+              <div class="col-lg-4 col-md-6 form-group">
+                <input type="number" class="form-control" name="people" id="people" placeholder="# of people" min="1" max="15" data-rule="minlen:1" data-msg="Please enter at least 1 person, and no more that 15">
+                <div class="validate"></div>
+              </div>
+            </div>
+            <div class="form-group">
+              <textarea class="form-control" name="message" rows="5" placeholder="Message"></textarea>
+              <div class="validate"></div>
+            </div>
+            <div class="mb-3">
+              <div class="loading">Loading</div>
+              <div class="error-message">Hey, this form is not real. Is not persistent.</div>
+              <div class="sent-message">Your booking request was sent. We will call back or send an Email to confirm your reservation. Thank you!</div>
+            </div>
+            <div class="text-center"><button type="submit">Send Message</button></div>
+          </form>
+
+        </div>
+      </section><!-- End Book A Table Section -->
+  {% endcache %}
+
+{% endblock content %}

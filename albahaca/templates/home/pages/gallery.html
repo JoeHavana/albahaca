@@ -1,0 +1,135 @@
+{% extends 'base.html' %}
+{% load static cache %}
+{% block title %}Gallery - Albahaca{% endblock title %}
+
+{% block navbar %}
+  <!-- ======= Top Bar ======= -->
+  <section id="topbar" class="d-none d-lg-flex align-items-center fixed-top" style="background-color: #000;">
+    <div class="text-left">
+      <nav class="nav-menu d-none d-lg-block">
+        <ul>
+          <li class="book-a-table text-center"><a href="{% url 'book' %}">Book a table</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="container text-right">
+      <i class="fas fa-phone"></i> +1 5534 56789 10
+      <i class="fas fa-clock"></i> Mon-Sat: 11:00 AM - 23:00 PM
+    </div>
+  </section>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center" style="background-color: rgba(0,0,0,.9);">
+    <div class="container d-flex align-items-center">
+
+      <div class="logo mr-auto">
+        <h1 class="text-light"><a href="{% url 'home' %}"><span>Albahaca</span></a></h1>
+      </div>
+
+      <nav class="nav-menu d-none d-lg-block">
+        <ul>
+          <li><a href="{% url 'home' %}">Home</a></li>
+          <li><a href="{% url 'about' %}">About</a></li>
+          <li><a href="{% url 'menu' %}">Menu</a></li>
+          <li><a href="{% url 'specials' %}">Specials</a></li>
+          <li><a href="{% url 'events' %}">Events</a></li>
+          <li><a href="{% url 'chefs' %}">Chefs</a></li>
+          <li><a href="{% url 'gallery' %}" style="color: orange;">Gallery</a></li>
+          <li><a href="{% url 'contact' %}">Contact</a></li>
+
+          <li><a href="{% url 'full' %}">All Sections</a></li>
+        </ul>
+      </nav><!-- .nav-menu -->
+
+    </div>
+  </header><!-- End Header -->
+{% endblock navbar %}
+{% block content %}
+
+  {% cache 604800 gallery %}
+
+    <main id="main"style="margin-top: 4.5rem !important;">
+
+      <!-- ======= Gallery Section ======= -->
+      <section id="gallery" class="gallery">
+        <div class="container-fluid">
+
+          <div class="section-title">
+            <h2>Some photos from <span>Our Restaurant</span></h2>
+            <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque vitae autem.</p>
+          </div>
+
+          <div class="row no-gutters">
+
+            <div class="col-lg-3 col-md-4">
+              <div class="gallery-item">
+                <a href="{% static 'assets/img/gallery/gallery-1.jpg' %}" class="venobox" data-gall="gallery-item">
+                  <img src="{% static 'assets/img/gallery/gallery-1.jpg' %}" alt="" class="img-fluid">
+                </a>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-4">
+              <div class="gallery-item">
+                <a href="{% static 'assets/img/gallery/gallery-2.jpg' %}" class="venobox" data-gall="gallery-item">
+                  <img src="{% static 'assets/img/gallery/gallery-2.jpg' %}" alt="" class="img-fluid">
+                </a>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-4">
+              <div class="gallery-item">
+                <a href="{% static 'assets/img/gallery/gallery-3.jpg' %}" class="venobox" data-gall="gallery-item">
+                  <img src="{% static 'assets/img/gallery/gallery-3.jpg' %}" alt="" class="img-fluid">
+                </a>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-4">
+              <div class="gallery-item">
+                <a href="{% static 'assets/img/gallery/gallery-4.jpg' %}" class="venobox" data-gall="gallery-item">
+                  <img src="{% static 'assets/img/gallery/gallery-4.jpg' %}" alt="" class="img-fluid">
+                </a>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-4">
+              <div class="gallery-item">
+                <a href="{% static 'assets/img/gallery/gallery-5.jpg' %}" class="venobox" data-gall="gallery-item">
+                  <img src="{% static 'assets/img/gallery/gallery-5.jpg' %}" alt="" class="img-fluid">
+                </a>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-4">
+              <div class="gallery-item">
+                <a href="{% static 'assets/img/gallery/gallery-6.jpg' %}" class="venobox" data-gall="gallery-item">
+                  <img src="{% static 'assets/img/gallery/gallery-6.jpg' %}" alt="" class="img-fluid">
+                </a>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-4">
+              <div class="gallery-item">
+                <a href="{% static 'assets/img/gallery/gallery-7.jpg' %}" class="venobox" data-gall="gallery-item">
+                  <img src="{% static 'assets/img/gallery/gallery-7.jpg' %}" alt="" class="img-fluid">
+                </a>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-4">
+              <div class="gallery-item">
+                <a href="{% static 'assets/img/gallery/gallery-8.jpg' %}" class="venobox" data-gall="gallery-item">
+                  <img src="{% static 'assets/img/gallery/gallery-8.jpg' %}" alt="" class="img-fluid">
+                </a>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section><!-- End Gallery Section -->
+    </main><!-- End #main -->
+  {% endcache %}
+
+{% endblock content %}

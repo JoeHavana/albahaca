@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% load static cache %}
+{% block title %}About - Albahaca{% endblock title %}
+
+{% block navbar %}
+  <!-- ======= Top Bar ======= -->
+  <section id="topbar" class="d-none d-lg-flex align-items-center fixed-top" style="background-color: #000;">
+    <div class="text-left">
+      <nav class="nav-menu d-none d-lg-block">
+        <ul>
+          <li class="book-a-table text-center"><a href="{% url 'book' %}">Book a table</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="container text-right">
+      <i class="fas fa-phone"></i> +1 5534 56789 10
+      <i class="fas fa-clock"></i> Mon-Sat: 11:00 AM - 23:00 PM
+    </div>
+  </section>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center" style="background-color: rgba(0,0,0,.9);">
+    <div class="container d-flex align-items-center">
+
+      <div class="logo mr-auto">
+        <h1 class="text-light"><a href="{% url 'home' %}"><span>Albahaca</span></a></h1>
+      </div>
+
+      <nav class="nav-menu d-none d-lg-block">
+        <ul>
+          <li><a href="{% url 'home' %}">Home</a></li>
+          <li><a href="{% url 'about' %}" style="color: orange;">About</a></li>
+          <li><a href="{% url 'menu' %}">Menu</a></li>
+          <li><a href="{% url 'specials' %}">Specials</a></li>
+          <li><a href="{% url 'events' %}">Events</a></li>
+          <li><a href="{% url 'chefs' %}">Chefs</a></li>
+          <li><a href="{% url 'gallery' %}">Gallery</a></li>
+          <li><a href="{% url 'contact' %}">Contact</a></li>
+
+          <li><a href="{% url 'full' %}">All Sections</a></li>
+        </ul>
+      </nav><!-- .nav-menu -->
+
+    </div>
+  </header><!-- End Header -->
+{% endblock navbar %}
+
+{% block content %}
+
+  {% cache 604800 about %}
+
+      <!-- ======= About Section ======= -->
+      <section id="about" class="about" style="margin-top: 4.5rem !important;">
+        <div class="container-fluid">
+
+          <div class="row">
+
+            <div class="col-lg-5 align-items-stretch video-box" style='background-image: url({% static "assets/img/about.jpg" %});'>
+              <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" target="_blank" class="play-btn mb-4"  data-autoplay="true"></a>
+            </div>
+
+            <div class="col-lg-7 d-flex flex-column justify-content-center align-items-stretch">
+
+              <div class="content">
+                <h3>Eum ipsam laborum deleniti <strong>velit pariatur architecto aut nihil</strong></h3>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit
+                </p>
+                <p class="font-italic">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                  magna aliqua.
+                </p>
+                <ul>
+                  <li><i class="fas fa-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+                  <li><i class="fas fa-check-circle"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
+                  <li><i class="fas fa-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
+                </ul>
+                <p>
+                  Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+                  velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                  culpa qui officia deserunt mollit anim id est laborum
+                </p>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+      </section><!-- End About Section -->
+
+  {% endcache %}
+
+{% endblock content %}

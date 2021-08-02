@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+{% load static cache %}
+
+{% block title %}Book A Table - Albahaca{% endblock title %}
+
+{% block navbar %}
+  <!-- ======= Top Bar ======= -->
+  <section id="topbar" class="d-none d-lg-flex align-items-center fixed-top" style="background-color: #000;">
+    <div class="text-left">
+      <nav class="nav-menu d-none d-lg-block">
+        <ul>
+          <li class="book-a-table text-center"><a href="{% url 'book' %}">Book a table</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="container text-right">
+      <i class="fas fa-phone"></i> +1 5534 56789 10
+      <i class="fas fa-clock"></i> Mon-Sat: 11:00 AM - 23:00 PM
+    </div>
+  </section>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center" style="background-color: rgba(0,0,0,.9);">
+    <div class="container d-flex align-items-center">
+
+      <div class="logo mr-auto">
+        <h1 class="text-light"><a href="{% url 'home' %}"><span>Albahaca</span></a></h1>
+      </div>
+
+      <nav class="nav-menu d-none d-lg-block">
+        <ul>
+          <li><a href="{% url 'home' %}">Home</a></li>
+          <li><a href="{% url 'about' %}">About</a></li>
+          <li><a href="{% url 'menu' %}">Menu</a></li>
+          <li><a href="{% url 'specials' %}">Specials</a></li>
+          <li><a href="{% url 'events' %}">Events</a></li>
+          <li><a href="{% url 'chefs' %}">Chefs</a></li>
+          <li><a href="{% url 'gallery' %}">Gallery</a></li>
+          <li><a href="{% url 'contact' %}">Contact</a></li>
+
+          <li><a href="{% url 'full' %}">All Sections</a></li>
+        </ul>
+      </nav><!-- .nav-menu -->
+
+    </div>
+  </header><!-- End Header -->
+{% endblock navbar %}
+{% block content %}
+
+  {% cache 604800 book %}
+    <main id="main" style="margin-top: 4.5rem !important;">
+
+      <!-- ======= Book A Table Section ======= -->
+      <section id="book-a-table" class="book-a-table">
+        <div class="container">
+
+          <div class="section-title">
+            <h2>Book a <span>Table</span></h2>
+            <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque vitae autem.</p>
+          </div>
+
+          <form action="." method="post" role="form" class="php-email-form">
+            <div class="form-row">
+              <div class="col-lg-4 col-md-6 form-group">
+                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:3" data-msg="Please enter at least 3 chars">
+                <div class="validate"></div>
+              </div>
+              <div class="col-lg-4 col-md-6 form-group">
+                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email">
+                <div class="validate"></div>
+              </div>
+              <div class="col-lg-4 col-md-6 form-group">
+                <input type="text" class="form-control" name="phone" id="phone" placeholder="Your Phone" data-rule="minlen:6" data-msg="Please enter at least 6 chars">
+                <div class="validate"></div>
+              </div>
+              <div class="col-lg-4 col-md-6 form-group">
+                <input type="date" name="date" class="form-control" id="date" placeholder="Date" data-rule="minlen:6" data-msg="Please enter a valid date">
+                <div class="validate"></div>
+              </div>
+              <div class="col-lg-4 col-md-6 form-group">
+                <input type="time" class="form-control" name="time" id="time" placeholder="Time" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+                <div class="validate"></div>
+              </div>
+              <div class="col-lg-4 col-md-6 form-group">
+                <input type="number" class="form-control" name="people" id="people" placeholder="# of people" min="1" max="15" data-rule="minlen:1" data-msg="Please enter at least 1 person, and no more that 15">
+                <div class="validate"></div>
+              </div>
+            </div>
+            <div class="form-group">
+              <textarea class="form-control" name="message" rows="5" placeholder="Message"></textarea>
+              <div class="validate"></div>
+            </div>
+            <div class="mb-3">
+              <div class="loading">Loading</div>
+              <div class="error-message">Hey, this form is not real. Is not persistent.</div>
+              <div class="sent-message">Your booking request was sent. We will call back or send an Email to confirm your reservation. Thank you!</div>
+            </div>
+            <div class="text-center"><button type="submit">Send Message</button></div>
+          </form>
+
+        </div>
+      </section><!-- End Book A Table Section -->
+
+  {% endcache %}
+
+{% endblock content %}

@@ -1,0 +1,162 @@
+{% extends 'base.html' %}
+{% load static cache %}
+{% block title %}Menu - Albahaca{% endblock title %}
+
+{% block navbar %}
+  <!-- ======= Top Bar ======= -->
+  <section id="topbar" class="d-none d-lg-flex align-items-center fixed-top" style="background-color: #000;">
+    <div class="text-left">
+      <nav class="nav-menu d-none d-lg-block">
+        <ul>
+          <li class="book-a-table text-center"><a href="{% url 'book' %}">Book a table</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="container text-right">
+      <i class="fas fa-phone"></i> +1 5534 56789 10
+      <i class="fas fa-clock"></i> Mon-Sat: 11:00 AM - 23:00 PM
+    </div>
+  </section>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center" style="background-color: rgba(0,0,0,.9);">
+    <div class="container d-flex align-items-center">
+
+      <div class="logo mr-auto">
+        <h1 class="text-light"><a href="{% url 'home' %}"><span>Albahaca</span></a></h1>
+      </div>
+
+      <nav class="nav-menu d-none d-lg-block">
+        <ul>
+          <li><a href="{% url 'home' %}">Home</a></li>
+          <li><a href="{% url 'about' %}">About</a></li>
+          <li><a href="{% url 'menu' %}" style="color: orange;">Menu</a></li>
+          <li><a href="{% url 'specials' %}">Specials</a></li>
+          <li><a href="{% url 'events' %}">Events</a></li>
+          <li><a href="{% url 'chefs' %}">Chefs</a></li>
+          <li><a href="{% url 'gallery' %}">Gallery</a></li>
+          <li><a href="{% url 'contact' %}">Contact</a></li>
+
+          <li><a href="{% url 'full' %}">All Sections</a></li>
+        </ul>
+      </nav><!-- .nav-menu -->
+
+    </div>
+  </header><!-- End Header -->
+{% endblock navbar %}
+{% block content %}
+
+  {% cache 604800 content %}
+
+    <main id="main" style="margin-top: 4.5rem !important;">
+      
+      <!-- ======= Menu Section ======= -->
+      <section id="menu" class="menu">
+        <div class="container">
+
+          <div class="section-title">
+            <h2>Check our tasty <span>Menu</span></h2>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-12 d-flex justify-content-center">
+              <ul id="menu-flters">
+                <li data-filter="*" class="filter-active">Show All</li>
+                <li data-filter=".filter-starters">Starters</li>
+                <li data-filter=".filter-salads">Salads</li>
+                <li data-filter=".filter-specialty">Specialty</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="row menu-container">
+
+            <div class="col-lg-6 menu-item filter-starters">
+              <div class="menu-content">
+                <a href="#">Lobster Bisque</a><span>$5.95</span>
+              </div>
+              <div class="menu-ingredients">
+                Lorem, deren, trataro, filede, nerada
+              </div>
+            </div>
+
+            <div class="col-lg-6 menu-item filter-specialty">
+              <div class="menu-content">
+                <a href="#">Bread barrel</a><span>$6.95</span>
+              </div>
+              <div class="menu-ingredients">
+                Lorem, deren, trataro, filede, nerada
+              </div>
+            </div>
+
+            <div class="col-lg-6 menu-item filter-starters">
+              <div class="menu-content">
+                <a href="#">Crab Cake</a><span>$7.95</span>
+              </div>
+              <div class="menu-ingredients">
+                A delicate crab cake served on a toasted roll with lettuce and tartar sauce
+              </div>
+            </div>
+
+            <div class="col-lg-6 menu-item filter-salads">
+              <div class="menu-content">
+                <a href="#">Caesar Selections</a><span>$8.95</span>
+              </div>
+              <div class="menu-ingredients">
+                Lorem, deren, trataro, filede, nerada
+              </div>
+            </div>
+
+            <div class="col-lg-6 menu-item filter-specialty">
+              <div class="menu-content">
+                <a href="#">Tuscan Grilled</a><span>$9.95</span>
+              </div>
+              <div class="menu-ingredients">
+                Grilled chicken with provolone, artichoke hearts, and roasted red pesto
+              </div>
+            </div>
+
+            <div class="col-lg-6 menu-item filter-starters">
+              <div class="menu-content">
+                <a href="#">Mozzarella Stick</a><span>$4.95</span>
+              </div>
+              <div class="menu-ingredients">
+                Lorem, deren, trataro, filede, nerada
+              </div>
+            </div>
+
+            <div class="col-lg-6 menu-item filter-salads">
+              <div class="menu-content">
+                <a href="#">Greek Salad</a><span>$9.95</span>
+              </div>
+              <div class="menu-ingredients">
+                Fresh spinach, crisp romaine, tomatoes, and Greek olives
+              </div>
+            </div>
+
+            <div class="col-lg-6 menu-item filter-salads">
+              <div class="menu-content">
+                <a href="#">Spinach Salad</a><span>$9.95</span>
+              </div>
+              <div class="menu-ingredients">
+                Fresh spinach with mushrooms, hard boiled egg, and warm bacon vinaigrette
+              </div>
+            </div>
+
+            <div class="col-lg-6 menu-item filter-specialty">
+              <div class="menu-content">
+                <a href="#">Lobster Roll</a><span>$12.95</span>
+              </div>
+              <div class="menu-ingredients">
+                Plump lobster meat, mayo and crisp lettuce on a toasted bulky roll
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section><!-- End Menu Section -->
+    </main><!-- End #main -->
+  {% endcache %}
+
+{% endblock content %}
