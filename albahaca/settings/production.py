@@ -8,7 +8,7 @@ env = os.environ.copy()
 
 SECRET_KEY='jqfb(93junty)4_e50gm7&rh$=-0*3q3vv3j!ara6nk7w9@5i8'
 
-ALLOWED_HOSTS = ['127.0.0.1', 'albahaca-example.herokuapp.com']
+ALLOWED_HOSTS = ['albahaca-restaurant.herokuapp.com']
 
 DEBUG = False
 
